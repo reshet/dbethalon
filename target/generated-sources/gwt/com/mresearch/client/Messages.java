@@ -2,7 +2,7 @@ package com.mresearch.client;
 
 /**
  * Interface to represent the messages contained in resource bundle:
- * 	/Users/user/databank/databankmaven/databank/src/main/resources/com/mresearch/client/Messages.properties'.
+ * 	/home/reshet/workspace-idea/dbethalon/src/main/resources/com/mresearch/client/Messages.properties'.
  */
 public interface Messages extends com.google.gwt.i18n.client.Messages {
   

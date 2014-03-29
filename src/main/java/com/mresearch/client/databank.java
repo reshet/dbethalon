@@ -17,6 +17,8 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import com.mresearch.shared.services.DatabankServices;
+import com.mresearch.shared.services.DatabankServicesAsync;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -34,6 +36,8 @@ public class databank implements EntryPoint {
    * Create a remote service proxy to talk to the server-side Greeting service.
    */
   private final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
+  private final DatabankServicesAsync databankService = GWT.create(DatabankServices.class);
+
 
   private final Messages messages = GWT.create(Messages.class);
 
@@ -125,7 +129,26 @@ public class databank implements EntryPoint {
         sendButton.setEnabled(false);
         textToServerLabel.setText(textToServer);
         serverResponseLabel.setText("");
-        greetingService.greetServer(textToServer, new AsyncCallback<String>() {
+
+//        greetingService.greetServer(textToServer, new AsyncCallback<String>() {
+//          public void onFailure(Throwable caught) {
+//            // Show the RPC error message to the user
+//            dialogBox.setText("Remote Procedure Call - Failure");
+//            serverResponseLabel.addStyleName("serverResponseLabelError");
+//            serverResponseLabel.setHTML(SERVER_ERROR);
+//            dialogBox.center();
+//            closeButton.setFocus(true);
+//          }
+//
+//          public void onSuccess(String result) {
+//            dialogBox.setText("Remote Procedure Call");
+//            serverResponseLabel.removeStyleName("serverResponseLabelError");
+//            serverResponseLabel.setHTML(result);
+//            dialogBox.center();
+//            closeButton.setFocus(true);
+//          }
+//        });
+        databankService.getServiceName(new AsyncCallback<String>() {
           public void onFailure(Throwable caught) {
             // Show the RPC error message to the user
             dialogBox.setText("Remote Procedure Call - Failure");
