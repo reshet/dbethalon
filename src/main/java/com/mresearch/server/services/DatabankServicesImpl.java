@@ -1,6 +1,8 @@
 package com.mresearch.server.services;
 
+import com.mresearch.server.business.Archiver;
 import com.mresearch.shared.services.DatabankServices;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,10 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * To change this template use File | Settings | File Templates.
  */
 @Service("databankService")
-//@Controller
-//@RequestMapping("databankService")
 public class DatabankServicesImpl implements DatabankServices{
+
+  @Autowired
+  Archiver archiver;
+
   public String getServiceName() {
-    return "Spring name";
+    return archiver.getServiceName();
   }
 }
