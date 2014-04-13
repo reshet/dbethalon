@@ -44,6 +44,17 @@ public class databank implements EntryPoint {
   /**
    * This is the entry point method.
    */
+  private void renderLayout(final String id){
+    databankService.getLayout(id, new AsyncCallback<String>() {
+      public void onFailure(Throwable caught) {
+      }
+      public void onSuccess(String result) {
+        RootPanel.get(id).add(new HTML(result));
+      }
+    });
+
+  }
+
   public void onModuleLoad() {
     final Button sendButton = new Button( messages.sendButton() );
     final TextBox nameField = new TextBox();
@@ -94,6 +105,9 @@ public class databank implements EntryPoint {
         sendButton.setFocus(true);
       }
     });
+
+    renderLayout("layout1");
+    renderLayout("layout2");
 
     // Create a handler for the sendButton and nameField
     class MyHandler implements ClickHandler, KeyUpHandler {

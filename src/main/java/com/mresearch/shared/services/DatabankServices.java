@@ -14,5 +14,6 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 public interface DatabankServices extends RemoteService {
 
   public String getServiceName();
+  public String getLayout(String name);
 
 }

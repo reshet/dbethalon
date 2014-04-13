@@ -6,4 +6,6 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 
 public interface DatabankServicesAsync {
   void getServiceName(AsyncCallback<String> async);
+
+  void getLayout(String name, AsyncCallback<String> async);
 }
